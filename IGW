@@ -1,0 +1,7 @@
+resource "aws_internet_gateway" "odlabs_igw" {
+  vpc_id = aws_vpc.odlabs_vpc.id
+
+tags = {
+  name = "odlabs"
+   }
+}

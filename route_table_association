@@ -1,0 +1,7 @@
+
+
+resource "aws_route_table_association" "pub_rt" {
+  subnet_id      = aws_subnet.odlabspub_subnet.id
+  route_table_id = aws_route_table.odlabs_rt.id
+}
+

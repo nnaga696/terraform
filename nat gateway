@@ -1,0 +1,4 @@
+
+resource "aws_nat_gateway" "terraform"
+  subnet_id     = aws_subnet.public_1.id
+  

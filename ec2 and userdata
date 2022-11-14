@@ -1,0 +1,35 @@
+
+  terraform {
+         required_providers {
+           aws = {
+             source = "hashicorp/aws"
+             version = "4.38.0"
+           }
+         }
+       }
+     
+    
+    
+      resource "aws_instance" "webserver" {
+    
+    
+      ami = "ami-02ea247e531eb3ce6"
+      instance_type = "t2.micro"
+      user_data = <<EOF
+      #!/bin/bash
+      yum update -y
+      yum install httpd -y
+      echo "Used userdata from terraform" > /var/www/html/index.html
+      service httpd start
+      chkconfig httpd on
+      EOF
+    
+      tags = {
+    
+      Name = "ondemandlabs"
+      techstack = "aws"
+    
+      }
+      }
+      
+      
